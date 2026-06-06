@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Users, ChalkboardTeacher } from "lucide-react";
+import { GraduationCap, Users, BookOpen } from "lucide-react";
 
 const audiences = [
   {
@@ -25,7 +25,7 @@ const audiences = [
     color: "accent",
   },
   {
-    icon: ChalkboardTeacher,
+    icon: BookOpen,
     title: "Tutors",
     subtitle: "Scale Your Impact",
     description:
