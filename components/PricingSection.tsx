@@ -1,197 +1,169 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, X, Zap, Star, Crown } from "lucide-react";
+import { Check, Star, ExternalLink, Lock } from "lucide-react";
+
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/1ItRi09zxbjrfAUBxcbeCEVLCbICGvB9fcsM2VQM_hwE/edit?usp=sharing";
 
 const plans = [
   {
     name: "Monthly",
     price: "R49",
     period: "per month",
-    description: "Perfect for exam crunch time",
-    icon: Zap,
+    desc: "Perfect for exam crunch time",
     features: [
-      "All 8 study features",
+      "All features included",
       "All subjects",
-      "AI Tutor access",
+      "AI tutor access",
       "Unlimited generations",
       "English & Afrikaans",
       "CAPS & IEB aligned",
-      "Snap & Solve",
     ],
-    cta: "Get Monthly Access",
+    cta: "Get Access",
     popular: false,
   },
   {
     name: "Term",
     price: "R199",
     period: "per term",
-    description: "Best for serious students",
-    icon: Star,
+    desc: "Best for serious students",
     features: [
-      "All 8 study features",
+      "All features included",
       "All subjects",
-      "AI Tutor access",
+      "AI tutor access",
       "Unlimited generations",
       "English & Afrikaans",
       "CAPS & IEB aligned",
-      "Snap & Solve",
       "Priority support",
     ],
-    cta: "Get Term Access",
+    cta: "Get Access",
     popular: true,
   },
   {
     name: "Year",
     price: "R499",
     period: "per year",
-    description: "Best value. Full year access.",
-    icon: Crown,
+    desc: "Best value. Full year access.",
     features: [
-      "All 8 study features",
+      "All features included",
       "All subjects",
-      "AI Tutor access",
+      "AI tutor access",
       "Unlimited generations",
       "English & Afrikaans",
       "CAPS & IEB aligned",
-      "Snap & Solve",
       "Priority support",
-      "Lifetime updates",
+      "Early access to new features",
     ],
-    cta: "Get Year Access",
+    cta: "Get Access",
     popular: false,
   },
 ];
 
 export default function PricingSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="pricing" ref={ref} className="py-24 bg-white relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Header */}
+    <section id="pricing" className="py-20 bg-[#0F0F1A]" ref={ref}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-6"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-            Simple Pricing
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            No Subscriptions. <span className="gradient-text">Ever.</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Simple Pricing. <span className="gradient-text">No Subscriptions. Ever.</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-            Pay once for the period you need. No recurring fees. No hidden costs. No monthly surprises.
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Pay once for the period you need. No recurring fees. No hidden costs.
           </p>
-
-          {/* NO SUBSCRIPTIONS BANNER */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-red-50 border-2 border-red-200 text-red-700 font-bold text-sm mb-8"
-          >
-            <X className="w-5 h-5" />
-            NO MONTHLY SUBSCRIPTIONS — We hate them too.
-            <X className="w-5 h-5" />
-          </motion.div>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 items-start">
+        {/* No Subscriptions Banner */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex justify-center mb-8"
+        >
+          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-danger/10 border border-danger/30 text-danger font-semibold">
+            <span>🚫</span> NO MONTHLY SUBSCRIPTIONS — We hate them too.
+          </div>
+        </motion.div>
+
+        {/* How to get access note */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="flex justify-center mb-10"
+        >
+          <div className="glass rounded-xl px-6 py-4 flex items-center gap-3 max-w-xl">
+            <Lock className="text-accent shrink-0" size={20} />
+            <p className="text-sm text-gray-300">
+              <span className="text-white font-medium">How it works:</span> Click "Get Access" to open AceIQ in Google Sheets. Then{" "}
+              <a href="https://wa.me/27728393087" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">WhatsApp us</a>{" "}
+              or <a href="mailto:dandelionseedlings@outlook.com" className="text-accent hover:underline">email</a>{" "}
+              your proof of payment to receive your <span className="text-white font-medium">security key</span>.
+            </p>
+          </div>
+        </motion.div>
+
+        <div className="grid md:grid-cols-3 gap-8">
           {plans.map((plan, i) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.15, duration: 0.6 }}
-              className={`relative rounded-2xl bg-white border-2 p-8 ${
-                plan.popular
-                  ? "pricing-popular border-primary shadow-xl shadow-primary/10 lg:scale-105"
-                  : "border-border card-hover"
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+              className={`relative glass rounded-2xl p-8 ${
+                plan.popular ? "border-2 border-accent" : ""
               }`}
             >
-              {/* Popular badge */}
               {plan.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-xs font-bold rounded-full">
-                  MOST POPULAR
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                  <div className="flex items-center gap-1 px-4 py-1.5 bg-accent text-white rounded-full text-sm font-semibold">
+                    <Star size={14} fill="currentColor" /> POPULAR
+                  </div>
                 </div>
               )}
 
-              {/* Plan header */}
               <div className="text-center mb-6">
-                <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 ${
-                    plan.popular ? "bg-primary text-white" : "bg-primary/10 text-primary"
-                  }`}
-                >
-                  <plan.icon className="w-6 h-6" />
+                <h3 className="text-xl font-semibold mb-2">{plan.name}</h3>
+                <div className="flex items-baseline justify-center gap-1">
+                  <span className="text-4xl font-bold">{plan.price}</span>
+                  <span className="text-gray-400">{plan.period}</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{plan.name}</h3>
-                <p className="text-sm text-gray-500 mt-1">{plan.description}</p>
+                <p className="text-sm text-gray-400 mt-2">{plan.desc}</p>
               </div>
 
-              {/* Price */}
-              <div className="text-center mb-6">
-                <span className="text-4xl font-black text-gray-900">{plan.price}</span>
-                <span className="text-gray-500 text-sm ml-1">{plan.period}</span>
-              </div>
-
-              {/* Features */}
               <ul className="space-y-3 mb-8">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <span className="w-5 h-5 rounded-full bg-success/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-success" />
-                    </span>
-                    <span className="text-sm text-gray-600">{feature}</span>
+                {plan.features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-sm text-gray-300">
+                    <Check className="text-success shrink-0 mt-0.5" size={16} />
+                    {f}
                   </li>
                 ))}
               </ul>
 
-              {/* CTA */}
               <a
-                href="#"
-                className={`block w-full text-center py-3.5 rounded-xl font-bold transition-all ${
+                href={SHEET_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`block w-full text-center py-3 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 ${
                   plan.popular
-                    ? "btn-shine bg-primary text-white hover:bg-primary-dark shadow-lg shadow-primary/25"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "bg-accent text-white hover:bg-accent/90"
+                    : "bg-white/10 text-white hover:bg-white/20"
                 }`}
               >
+                <ExternalLink size={18} />
                 {plan.cta}
               </a>
-
-              {/* One-time note */}
-              <p className="text-center text-xs text-gray-400 mt-3">
-                One-time payment. No auto-renewal.
-              </p>
             </motion.div>
           ))}
         </div>
-
-        {/* Money back guarantee */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8 }}
-          className="mt-12 text-center"
-        >
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-success/10 text-success text-sm font-semibold">
-            <Check className="w-5 h-5" />
-            7-Day Money-Back Guarantee — No questions asked
-          </div>
-        </motion.div>
       </div>
     </section>
   );

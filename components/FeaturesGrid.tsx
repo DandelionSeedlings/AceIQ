@@ -1,13 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import {
   BookOpen,
   Layers,
   FileQuestion,
-  GitBranch,
+  Brain,
   Calendar,
   Bot,
   Camera,
@@ -18,111 +17,96 @@ const features = [
   {
     icon: BookOpen,
     title: "AI Summaries",
-    description: "Turn any chapter into a clear, concise summary you can actually understand",
-    color: "primary",
+    desc: "Turn any chapter into a clear, concise summary",
+    color: "text-primary",
+    bg: "bg-primary/10",
   },
   {
     icon: Layers,
     title: "Flashcards",
-    description: "Auto-generated flashcards with smart review tracking and progress bars",
-    color: "accent",
+    desc: "Auto-generated flashcards with smart review tracking",
+    color: "text-accent",
+    bg: "bg-accent/10",
   },
   {
     icon: FileQuestion,
     title: "Practice Tests",
-    description: "CAPS-style multiple choice tests with instant feedback and scoring",
-    color: "success",
+    desc: "CAPS-style multiple choice tests with instant feedback",
+    color: "text-success",
+    bg: "bg-success/10",
   },
   {
-    icon: GitBranch,
+    icon: Brain,
     title: "Mind Maps",
-    description: "Visual concept maps that connect topics and show relationships",
-    color: "mindmap",
+    desc: "Visual concept maps that connect your topics",
+    color: "text-mindmap",
+    bg: "bg-mindmap/10",
   },
   {
     icon: Calendar,
     title: "Learning Plans",
-    description: "Personalized week-by-week study schedules based on your exam dates",
-    color: "tutor",
+    desc: "Personalized week-by-week study schedules",
+    color: "text-primary",
+    bg: "bg-primary/10",
   },
   {
     icon: Bot,
     title: "AI Tutor",
-    description: "Ask anything. Get instant help in English or Afrikaans, 24/7",
-    color: "primary",
+    desc: "Ask anything. Get instant help in English or Afrikaans.",
+    color: "text-tutor",
+    bg: "bg-tutor/10",
   },
   {
     icon: Camera,
     title: "Snap & Solve",
-    description: "Take a photo of a maths problem. Get step-by-step solutions with explanations",
-    color: "accent",
+    desc: "Take a photo of a maths problem. Get step-by-step help.",
+    color: "text-accent",
+    bg: "bg-accent/10",
   },
   {
     icon: Languages,
     title: "Bilingual",
-    description: "Full Afrikaans and English support for all materials and the AI tutor",
-    color: "success",
+    desc: "Full Afrikaans and English support for all materials",
+    color: "text-success",
+    bg: "bg-success/10",
   },
 ];
 
-const colorMap: Record<string, string> = {
-  primary: "bg-primary/10 text-primary border-primary/20",
-  accent: "bg-orange-100 text-orange-600 border-orange-200",
-  success: "bg-green-100 text-green-600 border-green-200",
-  mindmap: "bg-purple-100 text-purple-600 border-purple-200",
-  tutor: "bg-sky-100 text-sky-600 border-sky-200",
-};
-
 export default function FeaturesGrid() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="features" ref={ref} className="py-24 bg-cream relative">
+    <section id="features" className="py-20 bg-[#0F0F1A]" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-            Everything You Need
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            One Tool. <span className="gradient-text">Every Study Need.</span>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+            Everything You Need to <span className="gradient-text">Ace Your Exams</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            AceIQ doesn't just store your notes — it transforms them into powerful study tools
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            AceIQ combines 8 powerful study tools into one seamless Google Sheets experience.
           </p>
         </motion.div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {features.map((feature, i) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((f, i) => (
             <motion.div
-              key={feature.title}
+              key={f.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 + i * 0.08, duration: 0.5 }}
-              className={`card-hover group p-6 rounded-2xl bg-white border ${
-                i === 0 || i === 5 ? "sm:col-span-2 lg:col-span-2" : ""
-              }`}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="glass rounded-2xl p-6 hover:bg-white/5 transition-colors group"
             >
-              <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${
-                  colorMap[feature.color]
-                }`}
-              >
-                <feature.icon className="w-6 h-6" />
+              <div className={`w-12 h-12 rounded-xl ${f.bg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                <f.icon className={f.color} size={24} />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-                {feature.title}
-              </h3>
-              <p className="text-sm text-gray-600 leading-relaxed">
-                {feature.description}
-              </p>
+              <h3 className="font-semibold text-lg mb-2">{f.title}</h3>
+              <p className="text-sm text-gray-400">{f.desc}</p>
             </motion.div>
           ))}
         </div>

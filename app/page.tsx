@@ -8,11 +8,12 @@ import PricingSection from "@/components/PricingSection";
 import AffiliateSection from "@/components/AffiliateSection";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[#0F0F1A]">
       <Navigation />
       <HeroSection />
       <ProblemSolution />
@@ -23,6 +24,7 @@ export default function Home() {
       <AffiliateSection />
       <Testimonials />
       <FAQ />
+      <ContactSection />
       <Footer />
     </main>
   );

@@ -1,70 +1,46 @@
 "use client";
 
-import { BookOpen, Heart, Github, Twitter, Mail } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="py-12 bg-[#0F0F1A] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-bold text-xl">AceIQ</span>
-            </div>
-            <p className="text-gray-400 leading-relaxed mb-4 max-w-md">
-              Your AI study companion for CAPS & IEB. Built by Dandelion Seedlings to help South African students grow bright minds.
-            </p>
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 fill-red-500" />
-              <span>in South Africa</span>
-            </div>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Logo */}
+          <div className="flex items-center gap-3">
+            <Image
+              src="/aceiq-logo-horizontal.png"
+              alt="AceIQ"
+              width={140}
+              height={35}
+              className="h-8 w-auto opacity-80"
+            />
           </div>
 
           {/* Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Product</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="#affiliate" className="hover:text-white transition-colors">Affiliate Program</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Documentation</a></li>
-            </ul>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+            <a href="#features" className="hover:text-white transition-colors">Features</a>
+            <a href="#pricing" className="hover:text-white transition-colors">Pricing</a>
+            <a href="#affiliate" className="hover:text-white transition-colors">Affiliate</a>
+            <a href="#contact" className="hover:text-white transition-colors">Contact</a>
           </div>
 
           {/* Contact */}
-          <div>
-            <h4 className="font-semibold mb-4">Contact</h4>
-            <ul className="space-y-3 text-sm text-gray-400">
-              <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <a href="mailto:hello@aceiq.co.za" className="hover:text-white transition-colors">hello@aceiq.co.za</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Twitter className="w-4 h-4" />
-                <a href="#" className="hover:text-white transition-colors">@AceIQ_SA</a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Github className="w-4 h-4" />
-                <a href="#" className="hover:text-white transition-colors">github.com/aceiq</a>
-              </li>
-            </ul>
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-sm text-gray-400">
+            <a href="https://wa.me/27728393087" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Phone size={14} /> +27 72 839 3087
+            </a>
+            <a href="mailto:dandelionseedlings@outlook.com" className="flex items-center gap-2 hover:text-white transition-colors">
+              <Mail size={14} /> dandelionseedlings@outlook.com
+            </a>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-gray-500">
-            © 2024 Dandelion Seedlings. All rights reserved.
-          </p>
-          <p className="text-sm text-gray-600 flex items-center gap-1">
-            <span className="text-primary">🌱</span>
-            Growing bright minds
-          </p>
+        <div className="mt-10 pt-8 border-t border-white/5 text-center text-sm text-gray-500">
+          <p>Powered by Dandelion Seedlings — Growing bright minds 🌱</p>
+          <p className="mt-2">© 2026 AceIQ. All rights reserved.</p>
         </div>
       </div>
     </footer>
