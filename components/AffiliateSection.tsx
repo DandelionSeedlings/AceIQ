@@ -2,9 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { UserPlus, Share2, Wallet, ExternalLink } from "lucide-react";
+import { UserPlus, Share2, Wallet } from "lucide-react";
 
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/1ItRi09zxbjrfAUBxcbeCEVLCbICGvB9fcsM2VQM_hwE/edit?usp=sharing";
 
 const steps = [
   {
@@ -90,13 +89,10 @@ export default function AffiliateSection() {
             Join the Affiliate Program
           </a>
           <a
-            href={SHEET_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/start"
             className="inline-flex items-center gap-2 px-8 py-4 border border-white/20 text-white rounded-xl font-semibold hover:bg-white/5 transition-colors"
           >
-            <ExternalLink size={18} />
-            See AceIQ in Action
+            Get AceIQ
           </a>
         </motion.div>
       </div>

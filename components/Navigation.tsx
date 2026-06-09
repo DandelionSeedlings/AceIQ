@@ -53,7 +53,7 @@ export default function Navigation() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/start"
             className="px-5 py-2.5 bg-primary text-white rounded-lg text-sm font-medium hover:bg-primary-dark transition-colors"
           >
             Get Started

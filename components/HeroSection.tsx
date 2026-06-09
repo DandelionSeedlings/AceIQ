@@ -1,10 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Shield, BookOpen, Globe, ExternalLink } from "lucide-react";
+import { ArrowRight, Sparkles, Shield, BookOpen, Globe } from "lucide-react";
 import Image from "next/image";
 
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/1ItRi09zxbjrfAUBxcbeCEVLCbICGvB9fcsM2VQM_hwE/edit?usp=sharing";
 
 export default function HeroSection() {
   return (
@@ -36,13 +35,10 @@ export default function HeroSection() {
 
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
               <a
-                href={SHEET_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/start"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-semibold hover:bg-primary-dark transition-colors"
               >
-                <ExternalLink size={20} />
-                Open AceIQ in Google Sheets
+                Get AceIQ — R49
               </a>
               <a
                 href="#how-it-works"

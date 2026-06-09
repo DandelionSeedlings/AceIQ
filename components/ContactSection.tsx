@@ -6,7 +6,6 @@ import { useRef } from "react";
 import { Phone, Mail, MessageCircle, Send, Check, Lock, ExternalLink, Building2, CreditCard, QrCode } from "lucide-react";
 import Image from "next/image";
 
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/1ItRi09zxbjrfAUBxcbeCEVLCbICGvB9fcsM2VQM_hwE/edit?usp=sharing";
 
 export default function ContactSection() {
   const ref = useRef(null);
@@ -59,18 +58,15 @@ export default function ContactSection() {
                 <ExternalLink className="text-primary-light" size={22} />
               </div>
               <div>
-                <div className="font-semibold">Already have AceIQ open?</div>
-                <div className="text-sm text-gray-400">Get your security key after payment</div>
+                <div className="font-semibold">Ready to get AceIQ?</div>
+                <div className="text-sm text-gray-400">Choose your plan and pay securely</div>
               </div>
             </div>
             <a
-              href={SHEET_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/start"
               className="px-6 py-3 bg-primary text-white rounded-xl font-medium hover:bg-primary-dark transition-colors flex items-center gap-2 whitespace-nowrap"
             >
-              <ExternalLink size={16} />
-              Open AceIQ
+              Get AceIQ
             </a>
           </div>
         </motion.div>
@@ -153,7 +149,7 @@ export default function ContactSection() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Account Number</span>
-                      <span className="font-medium font-mono">63204692354</span>
+                      <span className="font-medium font-mono">63144251509</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-gray-400">Branch Code</span>

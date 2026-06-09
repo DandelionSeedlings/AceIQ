@@ -2,9 +2,8 @@
 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Check, Star, ExternalLink, Lock } from "lucide-react";
+import { Check, Star, Lock } from "lucide-react";
 
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/1ItRi09zxbjrfAUBxcbeCEVLCbICGvB9fcsM2VQM_hwE/edit?usp=sharing";
 
 const plans = [
   {
@@ -149,16 +148,13 @@ export default function PricingSection() {
               </ul>
 
               <a
-                href={SHEET_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`block w-full text-center py-3 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 ${
+                href="/start"
+                className={`block w-full text-center py-3 rounded-xl font-semibold transition-colors ${
                   plan.popular
                     ? "bg-accent text-white hover:bg-accent/90"
                     : "bg-white/10 text-white hover:bg-white/20"
                 }`}
               >
-                <ExternalLink size={18} />
                 {plan.cta}
               </a>
             </motion.div>
